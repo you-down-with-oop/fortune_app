@@ -8,4 +8,12 @@ class Api::MyFortunesController < ApplicationController
     @fortune = fortunes.sample
     render "fortune.json.jb"
   end
+
+  def lotto_method
+    @numbers = []
+    6.times do
+      @numbers << rand(1..60)
+    end
+    render "lotto.json.jb"
+  end
 end
