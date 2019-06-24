@@ -1,4 +1,6 @@
 class Api::MyFortunesController < ApplicationController
+  @@count = 0
+
   def fortune_method
     fortunes = [
       "You will be rich.",
@@ -15,5 +17,11 @@ class Api::MyFortunesController < ApplicationController
       @numbers << rand(1..60)
     end
     render "lotto.json.jb"
+  end
+
+  def counter_method
+    @@count += 1
+    @count = @@count
+    render "counter.json.jb"
   end
 end
